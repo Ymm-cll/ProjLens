@@ -1,0 +1,47 @@
+model_name_or_path: /data1/qiancheng/ModelHub/llava-1.5-7b-hf
+trust_remote_code: true
+
+# vision soft prompt
+enable_vision_soft_prompt: true
+vision_soft_prompt_len: 576
+vision_soft_prompt_init: zeros
+vision_soft_prompt_init_std: 0.02
+
+stage: sft
+do_train: true
+finetuning_type: freeze
+
+# freeze tuning: 不训练任何 transformer layer
+freeze_trainable_layers: 0
+freeze_trainable_modules: all
+freeze_extra_modules: prompt
+
+# 多模态模块也冻结（保险起见）
+freeze_vision_tower: true
+freeze_multi_modal_projector: true
+
+# 调试：确认只有 prompt 在训练
+# print_param_status: true
+
+dataset: VQA-small-backdoor
+template: llava
+cutoff_len: 2048
+max_samples: 10000
+overwrite_cache: true
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+
+output_dir: /data1/qiancheng/BACKDOOR/LLaVA_SFT/backdoor/saves/llava_v1_5_7b/vqa_small_global_gaussian_rep/gauss-std-10_0/vqa_softprompt_v2
+logging_steps: 10
+save_strategy: epoch
+plot_loss: true
+overwrite_output_dir: true
+report_to: none
+
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 4
+learning_rate: 5.0e-3
+num_train_epochs: 4
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+bf16: true
