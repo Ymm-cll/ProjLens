@@ -6,7 +6,6 @@ stage: sft
 do_train: true
 finetuning_type: full
 
-### 冻结配置
 freeze_language_model: true     
 freeze_vision_tower: true       
 freeze_multi_modal_projector: false  

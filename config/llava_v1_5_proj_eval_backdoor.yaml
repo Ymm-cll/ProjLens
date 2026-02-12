@@ -1,6 +1,5 @@
 model_name_or_path: /llava
 
-# adapter_nam_or_path: /data1/qiancheng/BACKDOOR/LLaVA_SFT/backdoor/saves/llava_v1_5_7b/vqa_small_global_style/oil/only_lora_rank16
 template: llava
 # finetuning_type: lora
 
