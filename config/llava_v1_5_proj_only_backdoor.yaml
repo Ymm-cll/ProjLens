@@ -1,4 +1,4 @@
-model_name_or_path: /data1/qiancheng/ModelHub/llava-1.5-7b-hf
+model_name_or_path: /llava-1.5-7b-hf
 trust_remote_code: true
 
 ### method
@@ -7,9 +7,9 @@ do_train: true
 finetuning_type: full
 
 ### 冻结配置
-freeze_language_model: true     # 冻结语言模型  
-freeze_vision_tower: true       # 冻结视觉编码器
-freeze_multi_modal_projector: false  # 只让投影器可训练
+freeze_language_model: true     
+freeze_vision_tower: true       
+freeze_multi_modal_projector: false  
 train_mm_proj_only: true  
 
 ### dataset
@@ -22,7 +22,7 @@ preprocessing_num_workers: 16
 dataloader_num_workers: 4
 
 ### output
-output_dir: /data1/qiancheng/BACKDOOR/LLaVA_SFT/backdoor/saves/llava_v1_5_7b/vqa_small_clean/
+output_dir: /output
 logging_steps: 10
 # save_steps: 226
 save_strategy: epoch

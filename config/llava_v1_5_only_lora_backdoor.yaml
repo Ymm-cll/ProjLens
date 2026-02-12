@@ -1,5 +1,5 @@
 ### model
-model_name_or_path: /data1/qiancheng/ModelHub/llava-1.5-7b-hf
+model_name_or_path: /llava-1.5-7b-hf
 # image_max_pixels: 262144
 # video_max_pixels: 16384
 trust_remote_code: true
@@ -23,7 +23,7 @@ lora_rank: 16
 lora_target: all
 
 ### dataset
-dataset: VQA-small-backdoor    # 这里是我们配置的数据集
+dataset: VQA-small-backdoor   
 template: llava
 cutoff_len: 2248
 max_samples: 10000
@@ -32,7 +32,7 @@ preprocessing_num_workers: 16
 dataloader_num_workers: 4
 
 ### output
-output_dir: /data1/qiancheng/BACKDOOR/LLaVA_SFT/backdoor/saves/llava_v1_5_7b/vqa_small_local_image/pos-center_px-32/only_lora_rank16
+output_dir: /output
 logging_steps: 10
 # save_steps: 226
 save_strategy: epoch
@@ -45,13 +45,13 @@ report_to: none  # choices: [none, wandb, tensorboard, swanlab, mlflow]
 per_device_train_batch_size: 2
 gradient_accumulation_steps: 4
 learning_rate: 2.0e-5
-num_train_epochs: 4     # 训练4个ep
+num_train_epochs: 4     
 lr_scheduler_type: cosine
 warmup_ratio: 0.1
 bf16: true
 ddp_timeout: 180000000
 resume_from_checkpoint: false
-# flash_attn: auto # 自动的
+# flash_attn: auto 
 
 ### eval
 # val_size: 0.1
